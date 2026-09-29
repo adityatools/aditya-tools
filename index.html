@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Tools - Free Online Tools</title>
+<meta name="description" content="Aditya Tools - free online image, text, calculator, converter and QR tools.">
+<meta name="keywords" content="online tools, image compressor, image resizer, jpg png, word counter, EMI calculator, GST calculator, QR generator">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
+header,.hero{background:linear-gradient(135deg,#1261ff,#643cff);color:#fff}
+header{padding:18px 6%}nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:15px}.logo{font-size:25px;font-weight:700}nav a{color:#fff;text-decoration:none;margin:0 8px}
+.hero{text-align:center;padding:55px 15px}.hero h1{font-size:44px;margin-bottom:10px}.hero p{margin-bottom:22px}
+.search{width:min(650px,92%);padding:15px 20px;border:0;border-radius:30px;font-size:16px;outline:0}
+.container{width:92%;max-width:1200px;margin:40px auto}.title{text-align:center;margin-bottom:25px}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card,.box{background:#fff;border-radius:16px;padding:22px;box-shadow:0 5px 18px #00000012}
+.card{text-align:center}.card .icon{font-size:38px}.card h3{margin:8px 0}.card p{color:#667085;margin-bottom:15px}
+button{background:#1261ff;color:#fff;border:0;padding:11px 17px;border-radius:8px;cursor:pointer;font-size:15px}button:hover{background:#0048d9}
+.tool{display:none;margin-top:25px}.tool h2{margin-bottom:12px}
+input,textarea,select{width:100%;padding:11px;margin:7px 0 12px;border:1px solid #d5d9e2;border-radius:8px;font-size:15px}
+textarea{min-height:150px}.result{background:#eef3ff;padding:14px;border-radius:9px;margin-top:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.social{text-align:center}.social a{display:inline-block;color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;margin:6px;font-weight:700}.yt{background:#f00}.ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af)}.fb{background:#1877f2}.wa{background:#128c7e}
+.info{line-height:1.7}.info h2{margin-bottom:10px}footer{background:#101828;color:#fff;text-align:center;padding:35px 15px;margin-top:50px}
+footer a{color:#9bb8ff;text-decoration:none;margin:0 7px}
+canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
+@media(max-width:650px){nav{flex-direction:column}.hero h1{font-size:34px}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header><nav>
+<div class="logo">⚡ Aditya Tools</div>
+<div><a href="#tools">Tools</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+</nav></header>
+
+<section class="hero">
+<h1>Free Online Tools</h1>
+<p>Simple, fast and useful tools for everyone.</p>
+<input class="search" id="search" placeholder="Search tools..." oninput="searchTools()">
+</section>
+
+<div class="container" id="tools">
+<h2 class="title">All Free Tools</h2>
+<div class="tools">
+
+<div class="card"><div class="icon">🖼️</div><h3>Image Compressor</h3><p>Reduce image size.</p><button onclick="openTool('compress')">Open</button></div>
+<div class="card"><div class="icon">📐</div><h3>Image Resizer</h3><p>Resize images.</p><button onclick="openTool('resize')">Open</button></div>
+<div class="card"><div class="icon">🔄</div><h3>JPG → PNG</h3><p>Convert JPG to PNG.</p><button onclick="openTool('jpgpng')">Open</button></div>
+<div class="card"><div class="icon">🔁</div><h3>PNG → JPG</h3><p>Convert PNG to JPG.</p><button onclick="openTool('pngjpg')">Open</button></div>
+<div class="card"><div class="icon">✂️</div><h3>Image Cropper</h3><p>Crop an image.</p><button onclick="openTool('crop')">Open</button></div>
+<div class="card"><div class="icon">📄</div><h3>Image → PDF</h3><p>Print/save image as PDF.</p><button onclick="openTool('pdf')">Open</button></div>
+<div class="card"><div class="icon">🔢</div><h3>Word Counter</h3><p>Count words and characters.</p><button onclick="openTool('words')">Open</button></div>
+<div class="card"><div class="icon">🔤</div><h3>Case Converter</h3><p>Change text case.</p><button onclick="openTool('case')">Open</button></div>
+<div class="card"><div class="icon">📊</div><h3>Percentage Calculator</h3><p>Calculate percentages.</p><button onclick="openTool('percent')">Open</button></div>
+<div class="card"><div class="icon">🎂</div><h3>Age Calculator</h3><p>Calculate your age.</p><button onclick="openTool('age')">Open</button></div>
+<div class="card"><div class="icon">💰</div><h3>EMI Calculator</h3><p>Calculate monthly EMI.</p><button onclick="openTool('emi')">Open</button></div>
+<div class="card"><div class="icon">🧾</div><h3>GST Calculator</h3><p>Add or remove GST.</p><button onclick="openTool('gst')">Open</button></div>
+<div class="card"><div class="icon">📏</div><h3>Length Converter</h3><p>Convert length units.</p><button onclick="openTool('length')">Open</button></div>
+<div class="card"><div class="icon">🔳</div><h3>QR Code Generator</h3><p>Create a QR code.</p><button onclick="openTool('qr')">Open</button></div>
+<div class="card"><div class="icon">🔐</div><h3>Password Generator</h3><p>Generate a random password.</p><button onclick="openTool('password')">Open</button></div>
+
+</div>
+
+<div class="tool box" id="compress">
+<h2>🖼️ Image Compressor</h2><input type="file" id="cf" accept="image/*"><div class="row"><input type="number" id="quality" value="60" min="10" max="100" placeholder="Quality %"></div><button onclick="compress()">Compress & Download</button><div class="result" id="cr"></div>
+</div>
+
+<div class="tool box" id="resize">
+<h2>📐 Image Resizer</h2><input type="file" id="rf" accept="image/*"><div class="row"><input type="number" id="rw" placeholder="Width"><input type="number" id="rh" placeholder="Height"></div><button onclick="resizeImg()">Resize & Download</button><div class="result" id="rr"></div>
+</div>
+
+<div class="tool box" id="jpgpng">
+<h2>🔄 JPG to PNG</h2><input type="file" id="jf" accept="image/jpeg,image/jpg"><button onclick="convert('jpgpng')">Convert & Download</button><div class="result" id="jr"></div>
+</div>
+
+<div class="tool box" id="pngjpg">
+<h2>🔁 PNG to JPG</h2><input type="file" id="pf" accept="image/png"><button onclick="convert('pngjpg')">Convert & Download</button><div class="result" id="pr"></div>
+</div>
+
+<div class="tool box" id="crop">
+<h2>✂️ Image Cropper</h2><input type="file" id="cropf" accept="image/*"><div class="row"><input type="number" id="cw" placeholder="Crop width"><input type="number" id="ch" placeholder="Crop height"></div><button onclick="cropImg()">Crop & Download</button><div class="result" id="cor"></div>
+</div>
+
+<div class="tool box" id="pdf">
+<h2>📄 Image to PDF</h2><input type="file" id="pdfimg" accept="image/*"><button onclick="printImagePDF()">Open Print / Save as PDF</button><div class="result">In the print window choose “Save as PDF”.</div>
+</div>
+
+<div class="tool box" id="words">
+<h2>🔢 Word Counter</h2><textarea id="wt" oninput="countWords()" placeholder="Type or paste text..."></textarea><div class="result">Words: <b id="wc">0</b><br>Characters: <b id="cc">0</b><br>Without spaces: <b id="cs">0</b></div>
+</div>
+
+<div class="tool box" id="case">
+<h2>🔤 Case Converter</h2><textarea id="ct" placeholder="Enter text..."></textarea><button onclick="caseConvert('upper')">UPPERCASE</button> <button onclick="caseConvert('lower')">lowercase</button> <button onclick="caseConvert('title')">Title Case</button><div class="result" id="caseout"></div>
+</div>
+
+<div class="tool box" id="percent">
+<h2>📊 Percentage Calculator</h2><input type="number" id="pa" placeholder="Number"><input type="number" id="pb" placeholder="Percentage"><button onclick="percentage()">Calculate</button><div class="result" id="perout"></div>
+</div>
+
+<div class="tool box" id="age">
+<h2>🎂 Age Calculator</h2><input type="date" id="dob"><button onclick="ageCalc()">Calculate Age</button><div class="result" id="ageout"></div>
+</div>
+
+<div class="tool box" id="emi">
+<h2>💰 EMI Calculator</h2><input type="number" id="loan" placeholder="Loan amount"><input type="number" id="rate" placeholder="Annual interest rate %"><input type="number" id="months" placeholder="Loan period in months"><button onclick="emiCalc()">Calculate EMI</button><div class="result" id="emiout"></div>
+</div>
+
+<div class="tool box" id="gst">
+<h2>🧾 GST Calculator</h2><input type="number" id="gstprice" placeholder="Amount"><input type="number" id="gstrate" placeholder="GST %"><button onclick="gstCalc(true)">Add GST</button> <button onclick="gstCalc(false)">Remove GST</button><div class="result" id="gstout"></div>
+</div>
+
+<div class="tool box" id="length">
+<h2>📏 Length Converter</h2><input type="number" id="lenval" placeholder="Value"><select id="from"><option value="m">Meter</option><option value="km">Kilometer</option><option value="cm">Centimeter</option><option value="ft">Feet</option><option value="in">Inch</option></select><select id="to"><option value="m">Meter</option><option value="km">Kilometer</option><option value="cm">Centimeter</option><option value="ft">Feet</option><option value="in">Inch</option></select><button onclick="lengthCalc()">Convert</button><div class="result" id="lenout"></div>
+</div>
+
+<div class="tool box" id="qr">
+<h2>🔳 QR Code Generator</h2><input id="qrtext" placeholder="Enter text or website URL"><button onclick="makeQR()">Generate QR</button><div class="result" id="qrout"></div>
+</div>
+
+<div class="tool box" id="password">
+<h2>🔐 Password Generator</h2><input type="number" id="plen" value="12" min="4" max="50" placeholder="Length"><button onclick="makePassword()">Generate Password</button><div class="result" id="passout"></div>
+</div>
+
+</div>
+
+<div class="container social">
+<h2>Follow Aditya</h2>
+<a class="yt" href="https://youtube.com/@adityastudytech?si=Ejjapiyod_WEOrRr" target="_blank">▶ YouTube</a>
+<a class="ig" href="https://www.instagram.com/theakboy77?stkn=bm9ubXppNGMzazNy" target="_blank">📷 Instagram</a>
+<a class="fb" href="https://www.facebook.com/share/1Day67Xvcg/" target="_blank">📘 Facebook</a>
+<a class="wa" href="https://whatsapp.com/channel/0029VaAxdQIIyPtJTbx3h02M" target="_blank">💬 WhatsApp Channel</a>
+</div>
+
+<div class="container" id="about"><div class="box info"><h2>About Aditya Tools</h2><p>Aditya Tools provides simple browser-based tools for students, creators and everyday users. Images processed by the basic image tools are handled in the browser.</p></div></div>
+
+<div class="container" id="contact"><div class="box info"><h2>Contact</h2><p>For suggestions, feedback or business enquiries, contact us through Instagram.</p><br><a href="https://www.instagram.com/theakboy77?stkn=bm9ubXppNGMzazNy" target="_blank">Contact on Instagram</a></div></div>
+
+<div class="container"><div class="box info"><h2>Privacy Policy</h2><p>Aditya Tools is designed to provide useful online tools. Basic image processing on this page happens in your browser. If third-party services such as advertising or analytics are added later, their own policies may apply.</p></div></div>
+
+<div class="container"><div class="box info"><h2>Terms & Conditions</h2><p>Use these tools lawfully and responsibly. The tools are provided for general use and may occasionally contain errors or become temporarily unavailable.</p></div></div>
+
+<footer>
+<h3>⚡ Aditya Tools</h3><p>Free Online Tools for Everyone</p><br>
+<a href="#tools">Tools</a><a href="#about">About</a><a href="#contact">Contact</a>
+<br><br><p>© 2026 Aditya Tools. All Rights Reserved.</p>
+</footer>
+
+<script>
+function openTool(id){
+document.querySelectorAll('.tool').forEach(x=>x.style.display='none');
+let x=document.getElementById(id);x.style.display='block';x.scrollIntoView({behavior:'smooth'});
+}
+function searchTools(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.card').forEach(c=>c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none');
+}
+function loadImage(file,cb){
+if(!file){alert('Please select an image.');return}
+let r=new FileReader();r.onload=e=>{let i=new Image();i.onload=()=>cb(i);i.src=e.target.result};r.readAsDataURL(file);
+}
+function downloadData(url,name){let a=document.createElement('a');a.href=url;a.download=name;a.click()}
+function compress(){
+loadImage(document.getElementById('cf').files[0],img=>{
+let c=document.createElement('canvas');c.width=img.width;c.height=img.height;c.getContext('2d').drawImage(img,0,0);
+let q=Math.max(10,Math.min(100,Number(document.getElementById('quality').value)||60))/100;
+c.toBlob(b=>{downloadData(URL.createObjectURL(b),'compressed-image.jpg');document.getElementById('cr').innerText='Compressed image downloaded.'},'image/jpeg',q);
+});
+}
+function resizeImg(){
+let f=document.getElementById('resizeFile').files[0],w=Number(document.getElementById('rw').value),h=Number(document.getElementById('rh').value);
+if(!w||!h){alert('Enter width and height.');return}
+loadImage(f,img=>{let c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);downloadData(c.toDataURL('image/jpeg',.9),'resized-image.jpg');document.getElementById('rr').innerText='Resized image downloaded.'});
+}
+function convert(type){
+let id=type==='jpgpng'?'jf':'pf',out=type==='jpgpng'?'jr':'pr',name=type==='jpgpng'?'converted-image.png':'converted-image.jpg';
+loadImage(document.getElementById(id).files[0],img=>{let c=document.createElement('canvas');c.width=img.width;c.height=img.height;let x=c.getContext('2d');if(type==='pngjpg'){x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height)}x.drawImage(img,0,0);let mime=type==='jpgpng'?'image/png':'image/jpeg';downloadData(c.toDataURL(mime,.92),name);document.getElementById(out).innerText='Conversion completed and download started.'});
+}
+function cropImg(){
+let f=document.getElementById('cropf').files[0],w=Number(document.getElementById('cw').value),h=Number(document.getElementById('ch').value);
+if(!w||!h){alert('Enter crop width and height.');return}
+loadImage(f,img=>{w=Math.min(w,img.width);h=Math.min(h,img.height);let sx=(img.width-w)/2,sy=(img.height-h)/2,c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,sx,sy,w,h,0,0,w,h);downloadData(c.toDataURL('image/png'),'cropped-image.png');document.getElementById('cor').innerText='Cropped image downloaded.'});
+}
+function printImagePDF(){
+let f=document.getElementById('pdfimg').files[0];if(!f){alert('Select an image.');return}
+let r=new FileReader();r.onload=e=>{let w=window.open('','_blank');w.document.write('<html><body style="margin:0;text-align:center"><img style="max-width:100%;max-height:100vh" src="'+e.target.result+'"><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()};r.readAsDataURL(f);
+}
+function countWords(){
+let t=document.getElementById('wt').value;document.getElementById('wc').innerText=t.trim()?t.trim().split(/\s+/).length:0;document.getElementById('cc').innerText=t.length;document.getElementById('cs').innerText=t.replace(/\s/g,'').length;
+}
+function caseConvert(type){
+let t=document.getElementById('ct').value;
+if(type==='upper')t=t.toUpperCase();else if(type==='lower')t=t.toLowerCase();else t=t.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+document.getElementById('caseout').innerText=t;
+}
+function percentage(){let a=Number(document.getElementById('pa').value),b=Number(document.getElementById('pb').value);document.getElementById('perout').innerText=b+'% of '+a+' = '+(a*b/100)}
+function ageCalc(){
+let d=new Date(document.getElementById('dob').value);if(isNaN(d)){alert('Select your date of birth.');return}
+let n=new Date(),age=n.getFullYear()-d.getFullYear(),m=n.getMonth()-d.getMonth();if(m<0||(m===0&&n.getDate()<d.getDate()))age--;document.getElementById('ageout').innerText='Your age is '+age+' years.';
+}
+function emiCalc(){
+let p=Number(document.getElementById('loan').value),annual=Number(document.getElementById('rate').value),n=Number(document.getElementById('months').value);if(!p||!n){alert('Enter loan amount and months.');return}
+let r=annual/12/100,emi=r? p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):p/n;document.getElementById('emiout').innerText='Monthly EMI: ₹'+emi.toFixed(2);
+}
+function gstCalc(add){
+let p=Number(document.getElementById('gstprice').value),g=Number(document.getElementById('gstrate').value);if(!p||isNaN(g)){alert('Enter amount and GST rate.');return}
+let total=add?p*(1+g/100):p/(1+g/100);let gst=add?total-p:p-total;document.getElementById('gstout').innerText='GST: ₹'+gst.toFixed(2)+' | Amount: ₹'+total.toFixed(2);
+}
+function lengthCalc(){
+let v=Number(document.getElementById('lenval').value),from=document.getElementById('from').value,to=document.getElementById('to').value;
+let u={m:1,km:1000,cm:.01,ft:.3048,in:.0254};let ans=v*u[from]/u[to];document.getElementById('lenout').innerText=v+' '+from+' = '+ans+' '+to;
+}
+function makeQR(){
+let t=document.getElementById('qrtext').value;if(!t){alert('Enter text or URL.');return}
+let url='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+encodeURIComponent(t);
+document.getElementById('qrout').innerHTML='<img src="'+url+'" alt="QR Code"><br><br><a href="'+url+'" target="_blank"><button>Open QR Image</button></a>';
+}
+function makePassword(){
+let n=Math.max(4,Math.min(50,Number(document.getElementById('plen').value)||12)),chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*',p='';
+for(let i=0;i<n;i++)p+=chars[Math.floor(Math.random()*chars.length)];
+document.getElementById('passout').innerHTML='<b style="word-break:break-all">'+p+'</b><br><br><button onclick="navigator.clipboard.writeText(\''+p.replace(/'/g,"\\'")+'\')">Copy Password</button>';
+}
+</script>
+</body>
+</html>
