@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="xZf005c0LzAKvgV2OLbsE9-xJCKUXfQsCsVTFb7dWkU" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aditya Tools - Free Online Tools</title>
 <meta name="description" content="Aditya Tools - free online image, text, calculator, converter and QR tools.">
@@ -63,6 +62,7 @@ canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
 <div class="card"><div class="icon">📏</div><h3>Length Converter</h3><p>Convert length units.</p><button onclick="openTool('length')">Open</button></div>
 <div class="card"><div class="icon">🔳</div><h3>QR Code Generator</h3><p>Create a QR code.</p><button onclick="openTool('qr')">Open</button></div>
 <div class="card"><div class="icon">🔐</div><h3>Password Generator</h3><p>Generate a random password.</p><button onclick="openTool('password')">Open</button></div>
+<div class="card"><div class="icon">📦</div><h3>Image Size Changer (KB/MB)</h3><p>Change image file size.</p><button onclick="openTool('sizechanger')">Open</button></div>
 
 </div>
 
@@ -126,6 +126,7 @@ canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
 <h2>🔐 Password Generator</h2><input type="number" id="plen" value="12" min="4" max="50" placeholder="Length"><button onclick="makePassword()">Generate Password</button><div class="result" id="passout"></div>
 </div>
 
+<div class="tool box" id="sizechanger"><h2>📦 Image Size Changer (KB/MB)</h2><input type="file" id="sizeFile" accept="image/jpeg,image/png,image/webp"><div class="row"><input type="number" id="targetSize" min="1" step="1" placeholder="Target size"><select id="sizeUnit"><option value="KB">KB</option><option value="MB">MB</option></select></div><select id="sizeFormat"><option value="image/jpeg">JPG / JPEG</option><option value="image/webp">WEBP</option></select><button onclick="changeImageSize()">Change Size & Download</button><div class="result" id="sizeresult"></div></div>
 </div>
 
 <div class="container social">
@@ -172,7 +173,7 @@ c.toBlob(b=>{downloadData(URL.createObjectURL(b),'compressed-image.jpg');documen
 });
 }
 function resizeImg(){
-let f=document.getElementById('resizeFile').files[0],w=Number(document.getElementById('rw').value),h=Number(document.getElementById('rh').value);
+let f=document.getElementById('rf').files[0],w=Number(document.getElementById('rw').value),h=Number(document.getElementById('rh').value);
 if(!w||!h){alert('Enter width and height.');return}
 loadImage(f,img=>{let c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);downloadData(c.toDataURL('image/jpeg',.9),'resized-image.jpg');document.getElementById('rr').innerText='Resized image downloaded.'});
 }
@@ -214,6 +215,8 @@ function lengthCalc(){
 let v=Number(document.getElementById('lenval').value),from=document.getElementById('from').value,to=document.getElementById('to').value;
 let u={m:1,km:1000,cm:.01,ft:.3048,in:.0254};let ans=v*u[from]/u[to];document.getElementById('lenout').innerText=v+' '+from+' = '+ans+' '+to;
 }
+async function changeImageSize(){const file=document.getElementById('sizeFile').files[0],target=Number(document.getElementById('targetSize').value),unit=document.getElementById('sizeUnit').value,mime=document.getElementById('sizeFormat').value,out=document.getElementById('sizeresult');if(!file){alert('Please select an image.');return}if(!target||target<=0){alert('Enter a target size.');return}const targetBytes=unit==='MB'?target*1024*1024:target*1024;loadImage(file,img=>{const c=document.createElement('canvas');c.width=img.width;c.height=img.height;c.getContext('2d').drawImage(img,0,0);const blob=q=>new Promise(r=>c.toBlob(r,mime,q));(async()=>{let best=await blob(1);if(best.size>targetBytes){let lo=.05,hi=1;for(let i=0;i<10;i++){let q=(lo+hi)/2,b=await blob(q);if(b.size<=targetBytes){best=b;lo=q}else hi=q}}const kb=best.size/1024,mb=best.size/1048576,ext=mime==='image/webp'?'webp':'jpg';downloadData(URL.createObjectURL(best),'aditya-tools-'+Math.round(kb)+'KB.'+ext);out.innerHTML='Done! Final size: <b>'+kb.toFixed(1)+' KB</b> ('+mb.toFixed(2)+' MB).'})()})}
+
 function makeQR(){
 let t=document.getElementById('qrtext').value;if(!t){alert('Enter text or URL.');return}
 let url='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+encodeURIComponent(t);
