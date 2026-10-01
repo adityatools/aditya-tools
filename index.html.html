@@ -12,21 +12,14 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Favicon / Site Icon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231261ff'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,sans-serif' font-size='38' font-weight='700' fill='white'%3EA%3C/text%3E%3C/svg%3E">
-
-<!-- SEO Metadata -->
-<meta name="author" content="Aditya Tools">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#1261ff">
-<meta name="description" content="Aditya Tools offers free online tools for image compression, resizing, conversion, PDF, text, calculators, QR codes and other everyday tasks. Fast, simple and easy to use.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aditya Tools - Free Online Tools">
-<meta property="og:description" content="Free online tools for images, text, calculators, QR codes and everyday tasks.">
+<link rel="canonical" href="https://adityatools.github.io/aditya-tools/">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 <title>Aditya Tools - Free Online Tools</title>
-<meta name="description" content="Aditya Tools - free online image, text, calculator, converter and QR tools.">
-<meta name="keywords" content="online tools, image compressor, image resizer, jpg png, word counter, EMI calculator, GST calculator, QR generator">
+<meta name="description" content="Aditya Tools offers free online tools for image compression, resizing, conversion, text editing, calculators, unit conversion, QR codes and more. Simple, fast and easy to use.">
+<meta name="keywords" content="Aditya Tools, free online tools, image compressor, image resizer, JPG to PNG, PNG to JPG, image cropper, word counter, case converter, EMI calculator, GST calculator, QR code generator, password generator, image size changer">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -50,17 +43,18 @@ footer a{color:#9bb8ff;text-decoration:none;margin:0 7px}
 canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
 @media(max-width:650px){nav{flex-direction:column}.hero h1{font-size:34px}.row{grid-template-columns:1fr}}
 </style>
+<!-- ADSENSE CODE WILL BE ADDED HERE AFTER GOOGLE PROVIDES THE ACCOUNT-SPECIFIC CODE -->
 </head>
 <body>
 
 <header><nav>
 <div class="logo">⚡ Aditya Tools</div>
-<div><a href="#tools">Tools</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+<div><a href="#tools">Tools</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a></div>
 </nav></header>
 
 <section class="hero">
 <h1>Free Online Tools</h1>
-<p>Simple, fast and useful tools for everyone.</p>
+<p>Free, simple and useful online tools for students, creators and everyday users.</p>
 <input class="search" id="search" placeholder="Search tools..." oninput="searchTools()">
 </section>
 
@@ -68,8 +62,10 @@ canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
 <h2 class="title">All Free Tools</h2>
 <div class="tools">
 
-<div class="card"><div class="icon">🖼️</div><h3>Image Compressor</h3><p>Reduce image size.</p><button onclick="openTool('compress')">Open</button></div>
 <div class="card"><div class="icon">📐</div><h3>Image Resizer</h3><p>Resize images.</p><button onclick="openTool('resize')">Open</button></div>
+<div class="card"><div class="icon">🖼️</div><h3>Image Compressor</h3><p>Reduce image size.</p><button onclick="openTool('compress')">Open</button></div>
+<div class="card"><div class="icon">📦</div><h3>Image Size Changer (KB/MB)</h3><p>Set a target image size.</p><button onclick="openTool('sizechanger')">Open</button></div>
+<div class="card"><div class="icon">✂️</div><h3>AI Background Remover</h3><p>Remove photo background.</p><button onclick="openTool('bgremove')">Open</button></div>
 <div class="card"><div class="icon">🔄</div><h3>JPG → PNG</h3><p>Convert JPG to PNG.</p><button onclick="openTool('jpgpng')">Open</button></div>
 <div class="card"><div class="icon">🔁</div><h3>PNG → JPG</h3><p>Convert PNG to JPG.</p><button onclick="openTool('pngjpg')">Open</button></div>
 <div class="card"><div class="icon">✂️</div><h3>Image Cropper</h3><p>Crop an image.</p><button onclick="openTool('crop')">Open</button></div>
@@ -83,7 +79,6 @@ canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
 <div class="card"><div class="icon">📏</div><h3>Length Converter</h3><p>Convert length units.</p><button onclick="openTool('length')">Open</button></div>
 <div class="card"><div class="icon">🔳</div><h3>QR Code Generator</h3><p>Create a QR code.</p><button onclick="openTool('qr')">Open</button></div>
 <div class="card"><div class="icon">🔐</div><h3>Password Generator</h3><p>Generate a random password.</p><button onclick="openTool('password')">Open</button></div>
-<div class="card"><div class="icon">📦</div><h3>Image Size Changer (KB/MB)</h3><p>Change image file size.</p><button onclick="openTool('sizechanger')">Open</button></div>
 
 </div>
 
@@ -148,6 +143,14 @@ canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
 </div>
 
 <div class="tool box" id="sizechanger"><h2>📦 Image Size Changer (KB/MB)</h2><input type="file" id="sizeFile" accept="image/jpeg,image/png,image/webp"><div class="row"><input type="number" id="targetSize" min="1" step="1" placeholder="Target size"><select id="sizeUnit"><option value="KB">KB</option><option value="MB">MB</option></select></div><select id="sizeFormat"><option value="image/jpeg">JPG / JPEG</option><option value="image/webp">WEBP</option></select><button onclick="changeImageSize()">Change Size & Download</button><div class="result" id="sizeresult"></div></div>
+
+<div class="tool box" id="bgremove">
+<h2>✂️ AI Background Remover</h2>
+<p>Remove the background from a photo and download the result as a transparent PNG.</p>
+<input type="file" id="bgFile" accept="image/*">
+<button id="bgButton" onclick="removePhotoBackground()">Remove Background</button>
+<div class="result" id="bgresult">The first use may take longer because the AI model is downloaded and cached in your browser.</div>
+</div>
 </div>
 
 <div class="container social">
@@ -158,17 +161,95 @@ canvas{max-width:100%;border:1px solid #ddd;margin-top:10px}
 <a class="wa" href="https://whatsapp.com/channel/0029VaAxdQIIyPtJTbx3h02M" target="_blank">💬 WhatsApp Channel</a>
 </div>
 
-<div class="container" id="about"><div class="box info"><h2>About Aditya Tools</h2><p>Aditya Tools provides simple browser-based tools for students, creators and everyday users. Images processed by the basic image tools are handled in the browser.</p></div></div>
+<div class="container" id="about"><div class="box info">
+<h2>About Aditya Tools</h2>
+<p>Welcome to Aditya Tools, a free online tools website created to make everyday digital tasks simple and convenient. We provide browser-based tools for students, creators, and general users.</p>
+<p>Our tools include image compression, image resizing, image format conversion, image cropping, image-to-PDF, word counting, case conversion, percentage calculation, age calculation, EMI calculation, GST calculation, length conversion, QR code generation, password generation and image size changing.</p>
+<p>Our goal is to provide simple, easy-to-use tools without unnecessary complexity. Some image processing is performed directly in your browser, depending on the tool.</p>
+</div></div>
 
-<div class="container" id="contact"><div class="box info"><h2>Contact</h2><p>For suggestions, feedback or business enquiries, contact us through Instagram.</p><br><a href="https://www.instagram.com/theakboy77?stkn=bm9ubXppNGMzazNy" target="_blank">Contact on Instagram</a></div></div>
 
-<div class="container"><div class="box info"><h2>Privacy Policy</h2><p>Aditya Tools is designed to provide useful online tools. Basic image processing on this page happens in your browser. If third-party services such as advertising or analytics are added later, their own policies may apply.</p></div></div>
+<div class="container" id="tool-guide"><div class="box info">
+<h2>How to Use Aditya Tools</h2>
+<p>Aditya Tools provides simple browser-based utilities for common image, text, calculator, conversion and QR tasks. Select a tool, enter or upload the required information, and follow the instructions shown on the page.</p>
+<h3>Image Tools</h3>
+<p><strong>Image Compressor:</strong> Upload an image and use the compression controls to reduce file size while keeping the image useful for sharing or web use.</p>
+<p><strong>Image Resizer:</strong> Upload an image, enter the required dimensions, and resize it to the desired width and height.</p>
+<p><strong>JPG to PNG:</strong> Upload a JPG image and convert it into PNG format.</p>
+<p><strong>PNG to JPG:</strong> Upload a PNG image and convert it into JPG format.</p>
+<p><strong>Image Cropper:</strong> Upload an image, select the area you want to keep, and create a cropped image.</p>
+<p><strong>Image to PDF:</strong> Select an image and create a PDF file from it.</p>
+<p><strong>Image Size Changer:</strong> Use this tool when you need to change the displayed image dimensions or size according to the available options.</p>
+<p><strong>AI Background Remover:</strong> Upload a photo to automatically detect the main subject and remove its background. The result is downloaded as a transparent PNG.</p>
+<h3>Text &amp; Calculator Tools</h3>
+<p><strong>Word Counter:</strong> Enter or paste text to check the number of words and characters.</p>
+<p><strong>Case Converter:</strong> Enter text and convert it into the available letter-case formats.</p>
+<p><strong>Percentage Calculator:</strong> Enter the required values to calculate a percentage.</p>
+<p><strong>Age Calculator:</strong> Enter the relevant date information to calculate an age result.</p>
+<p><strong>EMI Calculator:</strong> Enter the loan amount, interest rate and duration to estimate an EMI. Verify important financial calculations independently.</p>
+<p><strong>GST Calculator:</strong> Enter the amount and GST rate to calculate the applicable GST amount and total.</p>
+<h3>Other Useful Tools</h3>
+<p><strong>Length Converter:</strong> Convert a length value between the supported units.</p>
+<p><strong>QR Code Generator:</strong> Enter the text or information you want to encode and generate a QR image. This feature may use an external QR service.</p>
+<p><strong>Password Generator:</strong> Generate a random password using the options provided by the tool. Do not use generated passwords where your security requirements are higher than the tool's available options without further review.</p>
+</div></div>
 
-<div class="container"><div class="box info"><h2>Terms & Conditions</h2><p>Use these tools lawfully and responsibly. The tools are provided for general use and may occasionally contain errors or become temporarily unavailable.</p></div></div>
+<div class="container" id="contact"><div class="box info">
+<h2>Contact Us</h2>
+<p>We welcome suggestions, feedback, corrections and business enquiries related to Aditya Tools.</p>
+<p>You can contact us through our official social media profile:</p><br>
+<a href="https://www.instagram.com/theakboy77?stkn=bm9ubXppNGMzazNy" target="_blank" rel="noopener">Contact on Instagram</a>
+</div></div>
+
+<div class="container" id="privacy"><div class="box info">
+<h2>Privacy Policy</h2>
+<p>Your privacy is important to us. Aditya Tools is designed to provide online utilities in a simple way.</p>
+<h3>Information we collect</h3>
+<p>Most basic tools on this website work in your browser. We do not ask you to create an account just to use these tools. Do not enter sensitive or confidential information into any tool unless you are comfortable doing so.</p>
+<h3>Analytics and advertising</h3>
+<p>This website currently uses Google Analytics to understand website usage. If Google AdSense or another advertising service is enabled in the future, the website may use cookies or similar technologies for advertising and measurement, subject to the applicable provider policies and privacy requirements.</p>
+<h3>Third-party services</h3>
+<p>Some features may use third-party services. For example, the QR Code Generator uses an external QR service to create QR images. Third-party services have their own privacy policies and terms.</p>
+<h3>Changes to this policy</h3>
+<p>We may update this Privacy Policy when the website or its services change. Any updated version will be published on this page.</p>
+</div></div>
+
+<div class="container" id="terms"><div class="box info">
+<h2>Terms &amp; Conditions</h2>
+<p>By using Aditya Tools, you agree to use the website and its tools lawfully and responsibly.</p>
+<p>The tools are provided for general informational and utility purposes. We try to keep the tools accurate and available, but we do not guarantee that every result will always be error-free or that the website will always be available.</p>
+<p>You are responsible for checking important results before using them for financial, legal, academic, professional or other important decisions.</p>
+<p>Do not use the website to process unlawful content or to violate the rights of others.</p>
+</div></div>
+
+<div class="container" id="disclaimer"><div class="box info">
+<h2>Disclaimer</h2>
+<p>Aditya Tools provides free online utilities for general use. Calculator results, conversions and other outputs are intended as convenient utility results and should be independently verified when accuracy is important.</p>
+<p>Aditya Tools is not a financial, legal, medical or professional advisory service. Use the information and tools at your own discretion.</p>
+</div></div>
+
+
+<div class="container" id="faq"><div class="box info">
+<h2>Frequently Asked Questions</h2>
+<h3>Does the Background Remover upload my photo?</h3>
+<p>The background-removal processing is designed to run in the browser. The AI model may be downloaded to the browser the first time the tool is used.</p>
+<h3>Are Aditya Tools free?</h3>
+<p>Yes. The tools on this website are provided for free use.</p>
+<h3>Do I need an account?</h3>
+<p>No account is required for the basic tools currently available on the website.</p>
+<h3>Are my images uploaded to a server?</h3>
+<p>Basic image-processing tools are designed to process files in your browser. The QR Code Generator may use an external QR service, as described in the Privacy Policy.</p>
+<h3>Can I rely on calculator results for important decisions?</h3>
+<p>The calculators are provided as convenient utility tools. For financial, legal, medical, academic or other important decisions, independently verify the result before relying on it.</p>
+<h3>What should I do if a tool does not work?</h3>
+<p>Refresh the page, try a supported file or input, and check that your browser is up to date. If the problem continues, contact us with details about the issue.</p>
+<h3>How can I contact Aditya Tools?</h3>
+<p>You can use the Contact section and the official social-media contact option provided on this website.</p>
+</div></div>
 
 <footer>
 <h3>⚡ Aditya Tools</h3><p>Free Online Tools for Everyone</p><br>
-<a href="#tools">Tools</a><a href="#about">About</a><a href="#contact">Contact</a>
+<a href="#tools">Tools</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#privacy">Privacy Policy</a><a href="#terms">Terms &amp; Conditions</a><a href="#disclaimer">Disclaimer</a><a href="#tool-guide">Tool Guide</a><a href="#faq">FAQ</a>
 <br><br><p>© 2026 Aditya Tools. All Rights Reserved.</p>
 </footer>
 
@@ -238,6 +319,23 @@ let u={m:1,km:1000,cm:.01,ft:.3048,in:.0254};let ans=v*u[from]/u[to];document.ge
 }
 async function changeImageSize(){const file=document.getElementById('sizeFile').files[0],target=Number(document.getElementById('targetSize').value),unit=document.getElementById('sizeUnit').value,mime=document.getElementById('sizeFormat').value,out=document.getElementById('sizeresult');if(!file){alert('Please select an image.');return}if(!target||target<=0){alert('Enter a target size.');return}const targetBytes=unit==='MB'?target*1024*1024:target*1024;loadImage(file,img=>{const c=document.createElement('canvas');c.width=img.width;c.height=img.height;c.getContext('2d').drawImage(img,0,0);const blob=q=>new Promise(r=>c.toBlob(r,mime,q));(async()=>{let best=await blob(1);if(best.size>targetBytes){let lo=.05,hi=1;for(let i=0;i<10;i++){let q=(lo+hi)/2,b=await blob(q);if(b.size<=targetBytes){best=b;lo=q}else hi=q}}const kb=best.size/1024,mb=best.size/1048576,ext=mime==='image/webp'?'webp':'jpg';downloadData(URL.createObjectURL(best),'aditya-tools-'+Math.round(kb)+'KB.'+ext);out.innerHTML='Done! Final size: <b>'+kb.toFixed(1)+' KB</b> ('+mb.toFixed(2)+' MB).'})()})}
 
+async function removePhotoBackground(){
+const file=document.getElementById('bgFile').files[0];
+const button=document.getElementById('bgButton');
+const out=document.getElementById('bgresult');
+if(!file){alert('Please select a photo.');return}
+button.disabled=true;
+out.innerHTML='Processing photo... The first run can take longer while the AI model loads.';
+try{
+const mod=await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/+esm');
+const removeBackground=mod.default||mod.removeBackground;
+if(!removeBackground) throw new Error('Background removal library could not be loaded.');
+const blob=await removeBackground(file,{output:{format:'image/png',quality:0.9}});
+const url=URL.createObjectURL(blob);
+out.innerHTML='<p>Background removed successfully.</p><img src="'+url+'" alt="Background removed image" style="max-width:100%;border-radius:12px"><br><br><button onclick="downloadData(\''+url+'\',\'background-removed.png\')">Download PNG</button>';
+}catch(err){console.error(err);out.innerHTML='Could not remove the background. Please try a smaller image or try again.';alert('Background removal failed. Please try again.')}
+finally{button.disabled=false}
+}
 function makeQR(){
 let t=document.getElementById('qrtext').value;if(!t){alert('Enter text or URL.');return}
 let url='https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+encodeURIComponent(t);
